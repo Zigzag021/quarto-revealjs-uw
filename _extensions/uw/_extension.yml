@@ -6,10 +6,15 @@ contributes:
   formats:
     revealjs:
       theme: [default, uw.scss]
-      logo: "https://uw-s3-cdn.s3.us-west-2.amazonaws.com/wp-content/uploads/sites/230/2023/11/02134810/W-Logo_Purple_RGB.png"
+      width: 1150
+      slide-level: 4
+      logo: "uw-dept-logo-measurement-statistics-vertical.svg"
       menu:
         side: left
       slide-number: true
+      footer: ""
+      transition: convex
+      transition-speed: fast
       date-format: long
       html-math-method:
         method: mathjax
@@ -17,5 +22,8 @@ contributes:
       include-before-body:
         - text: |
             <script src="mathjax-config.js"></script>
+            <script src="deck-defaults.js"></script>
       format-resources:
+        - deck-defaults.js
         - mathjax-config.js
+        - uw-dept-logo-measurement-statistics-vertical.svg

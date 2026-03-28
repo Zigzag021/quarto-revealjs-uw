@@ -1,341 +1,487 @@
 /*-- scss:defaults --*/
 
-// Custom colours and variables
+// Structure inspired by vladislav-morozov/econometrics-2.
+// Colors aligned to UW brand guidance.
+$uw-ink: #241a3a;
+$uw-ink-soft: #615a72;
+$uw-teal: #4b2e83;
+$uw-teal-deep: #32006e;
+$uw-warm: #b7a57a;
+$uw-spirit-gold: #ffc700;
+$uw-alert: #85754d;
+$uw-accent-teal: #2ad2c9;
+$uw-mist: #f4f2f7;
+$uw-border: #ddd5ec;
+$right-arrow: "\2192";
 
-$jet: #131516;
-$accent: #107895;
-$accent2: #9a2515;
-// $accent2: #e64173;
-$right-arrow: "\2192"; // Unicode character for right arrow
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Roboto+Slab:wght@400;600;700&display=swap');
 
-// fonts
+$font-family-sans-serif: "Noto Sans", sans-serif !default;
+$presentation-heading-font: "Roboto Slab", serif !default;
+$presentation-heading-color: $uw-ink !default;
+$presentation-heading-font-weight: 700 !default;
+$presentation-heading-line-height: 1.15 !default;
+$presentation-font-size-root: 40px;
+$presentation-h1-font-size: 3em !default;
+$presentation-h2-font-size: 2.4em !default;
+$presentation-h3-font-size: 2em !default;
+$presentation-h4-font-size: 1.1em !default;
+$presentation-title-slide-text-align: left;
 
-/*
-Note: This theme imports Open Sans (body text) and Encode Sans (headings)
-  from Google Fonts for consistent cross-platform rendering.
-*/
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Encode+Sans:wght@300;400;600&display=swap');
+$body-bg: #ffffff !default;
+$body-color: $uw-ink !default;
+$link-color: $uw-teal !default;
+$dark-bg-text-color: #ffffff !default;
+$selection-bg: $uw-spirit-gold !default;
+$code-color: $uw-teal !default;
+$code-block-border-color: $uw-teal !default;
+$code-block-bg: transparent !default;
 
-$font-family-sans-serif: "Open Sans", sans-serif !default;
-$presentation-heading-font: "Encode Sans", sans-serif !default;
+$overlayElementBgColor: 0, 0, 0 !default;
+$overlayElementFgColor: 240, 240, 240 !default;
 
-$presentation-heading-color: $jet !default;
-$presentation-heading-font-weight: lighter;
-//$presentation-heading-line-height: 2;
-//$presentation-block-margin: 28px;
-$presentation-font-size-root: 32px;
+/*-- scss:mixins --*/
 
-// colors
-//$body-bg: #f0f1eb !default;
-$body-color: $jet !default;
-$link-color: $accent !default;
-$selection-bg: #26351c !default;
-
+@mixin bodyBackground() {
+  @include radial-gradient(#f6f3fb, #ffffff);
+}
 
 /*-- scss:rules --*/
 
-.reveal a {
-  line-height: 1.5em;
+:root {
+  --uw-title-bg-start: #{$uw-teal};
+  --uw-title-bg-end: #{$uw-teal-deep};
+  --uw-section-bg: #{$uw-ink};
+  --uw-page-bg: #{$uw-teal-deep};
+  --uw-header-fg: #{rgba($uw-alert, 0.92)};
+  --uw-header-fg-dark: rgba(255, 255, 255, 0.84);
 }
 
-.reveal p {
-  // font-weight: 300;
-  font-weight: lighter;
-  margin-top: 1.25em;
-}
+.reveal {
+  color: $body-color;
 
-// title and headings
+  a {
+    line-height: 1.3em;
+    text-decoration-thickness: 0.06em;
+    text-underline-offset: 0.12em;
+  }
+
+  p,
+  li {
+    line-height: 1.45;
+  }
+
+  p {
+    margin-top: 1.05em;
+  }
+
+  strong,
+  b {
+    color: $uw-teal-deep;
+  }
+
+  h2 {
+    color: $uw-ink;
+    font-size: $presentation-h2-font-size;
+    margin-bottom: 0.55em;
+  }
+
+  section > h2:first-child::after {
+    content: "";
+    display: block;
+    width: 2.75rem;
+    height: 0.14rem;
+    margin-top: 0.28rem;
+    background: $uw-warm;
+    border-radius: 999px;
+  }
+
+  h3 {
+    color: $uw-teal;
+    font-size: $presentation-h3-font-size;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    margin-top: 0.15em;
+    text-transform: uppercase;
+  }
+
+  h4 {
+    color: $uw-teal;
+    font-size: $presentation-h4-font-size;
+    font-weight: 600;
+    margin-top: 1.1em;
+  }
+
+  pre {
+    background: rgba($uw-mist, 0.72);
+    border: 1px solid rgba($uw-teal, 0.16);
+    border-radius: 12px;
+    box-shadow: none;
+    padding: 0.15em 0;
+  }
+
+  code:not(.sourceCode) {
+    background: rgba($uw-mist, 0.72);
+    border-radius: 0.22em;
+    padding: 0.08em 0.22em;
+  }
+}
 
 #title-slide {
+  background: transparent;
+  color: $dark-bg-text-color;
+  padding: 1.65em 1.55em 1.35em 1.55em;
   text-align: left;
 
   .title {
-    color: $body-color;
-    font-size: 1.4em;
-    // font-weight: 350;
-    font-weight: lighter;
+    color: #ffffff;
+    font-size: $presentation-h1-font-size;
+    line-height: 1.05;
+    margin-bottom: 0.24em;
   }
 
   .subtitle {
-    color: $accent;
-    font-style: italic;
-    margin-top: 0em;
-    font-weight: lighter;
+    color: rgba($uw-warm, 0.98);
+    font-size: 0.72em;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin-top: 0;
+    margin-bottom: 1.05em;
+    text-transform: uppercase;
   }
 
-  .institute,
-  .quarto-title-affiliation,
-  .quarto-title-author-email {
-    font-style: italic;
-    // font-size: 80%;
-    // color: #7F7F7F;
+  .quarto-title-authors {
+    border-top: 1px solid rgba($uw-warm, 0.55);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem 1.5rem;
+    justify-content: flex-start;
+    margin-top: 1.25em;
+    padding-top: 0.85em;
+  }
+
+  .quarto-title-author {
+    min-width: min(18rem, 100%);
+    padding-left: 0;
+    padding-right: 0;
+    width: auto;
   }
 
   .author,
   .quarto-title-author-name {
-    color: $body-color;
+    color: #ffffff;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-bottom: 0.12rem;
   }
 
-  .quarto-title-authors {
-    display: flex;
-    justify-content: left;
-
-    .quarto-title-author {
-      padding-left: 0em;
-      padding-right: 0em;
-      width: 100%;
-    }
+  .institute,
+  .quarto-title-author-email,
+  .quarto-title-affiliation {
+    color: rgba(255, 255, 255, 0.84);
+    font-size: 0.58em;
+    font-style: italic;
+    line-height: 1.35;
+    margin-top: 0.12rem;
+    margin-bottom: 0.12rem;
   }
 
+  .quarto-title-author-email a,
+  .quarto-title-author-email a:hover,
+  .quarto-title-author-email a:active,
+  .quarto-title-author-email a:visited {
+    border-bottom: 1px solid rgba($uw-warm, 0.58);
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .quarto-title-author-orcid img {
+    margin-bottom: 4px;
+  }
+
+  .date {
+    color: rgba($uw-warm, 0.9);
+    font-size: 0.55em;
+    margin-top: 1.15em;
+  }
 }
 
-
-.reveal h2 {
-  // font-weight: 350;
-  font-weight: lighter;
-  font-size: 1.4em;
+.reveal .slides section:not(.title-slide):not(#title-slide):not(.stack) {
+  padding-top: 1.05em;
 }
 
-.reveal h3 {
-  color: $accent;
-  font-style: italic;
-  // font-weight: 350;
-  font-weight: lighter;
-  font-size: 0.95em;
+.reveal .slides section.level4:not(.title-slide):not(#title-slide):not(.stack) {
+  padding-top: 0.55em;
 }
 
-.reveal h4 {
-  color: $accent2;
-  // font-weight: 350;
-  font-weight: normal;
-  margin-top: 1.25em;
+.reveal .slides section.level4 > h4:first-child {
+  margin-top: 0.25em;
 }
 
-// alerts etc.
+.reveal .slides section.title-slide.uw-dark-slide {
+  background: transparent;
+  color: $dark-bg-text-color;
+}
+
+.reveal .slides section.title-slide.level2.uw-dark-slide h2,
+.reveal .slides section.title-slide.level3.uw-dark-slide h3 {
+  color: $dark-bg-text-color;
+}
+
+.reveal .slides section.title-slide.level2.uw-dark-slide > h2:first-child::after {
+  background: rgba($uw-warm, 0.92);
+}
+
+.reveal .slides section.title-slide.level2.uw-dark-slide a,
+.reveal .slides section.title-slide.level3.uw-dark-slide a {
+  color: rgba($uw-warm, 0.96);
+}
+
+.title-slide h2,
+.title-slide h3 {
+  letter-spacing: 0.08em;
+  text-transform: uppercase !important;
+}
+
+.button {
+  background-color: $uw-teal;
+  border: 1px solid $uw-teal;
+  border-radius: 4px;
+  color: #ffffff !important;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  margin-bottom: 0;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button:hover {
+  background-color: $uw-teal-deep;
+  border-color: $uw-teal-deep;
+}
+
+.button::before {
+  content: "\25b6";
+  margin-right: 5px;
+}
+
+.highlight {
+  color: $uw-teal-deep;
+  font-weight: 600;
+}
+
+.rounded-box {
+  background: rgba($uw-teal, 0.035);
+  border: 2px solid rgba($uw-warm, 0.72);
+  border-radius: 15px;
+  margin-bottom: 10px;
+  padding: 9px 14px;
+}
 
 .alert {
-  color: $accent2;
+  color: $uw-alert;
+  font-weight: 600;
 }
 
 .fg {
-  color: var(--col, $jet);
+  color: var(--col, $uw-ink);
 }
 
 .bg {
-  background-color: var(--col, #fff);
-  padding: 0.1em;
-  border-radius: 5px;
+  background-color: var(--col, #ffffff);
+  border: 1px solid rgba($uw-ink, 0.08);
+  border-radius: 999px;
   display: inline-block;
+  padding: 0.1em 0.38em;
 }
 
-// lists
+.reveal .footer.footer-default {
+  color: $uw-alert;
+  font-family: $presentation-heading-font;
+  font-size: 0.48em;
+  letter-spacing: 0.04em;
+}
 
-// Unordered lists
+.reveal .reveal-header {
+  align-items: center;
+  box-sizing: border-box;
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  left: 0;
+  padding: 0.22rem 0.85rem 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 6;
+}
+
+.reveal .reveal-header.is-hidden {
+  visibility: hidden;
+}
+
+.reveal .reveal-header p {
+  color: var(--uw-header-fg);
+  font-family: $presentation-heading-font;
+  font-size: max(10px, 1.35vw);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.reveal .reveal-header .sc-title,
+.reveal .reveal-header .sb-title {
+  min-width: 0;
+}
+
+.reveal .reveal-header .sc-title p,
+.reveal .reveal-header .sb-title p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reveal .reveal-header .sb-title {
+  justify-self: end;
+}
+
+.reveal .reveal-header .sb-title p {
+  text-align: right;
+}
+
+.reveal .reveal-header .slide-number {
+  background: transparent;
+  color: var(--uw-header-fg) !important;
+  font-family: $presentation-heading-font;
+  font-size: max(10px, 1.1vw);
+  inset: auto !important;
+  margin-left: 0.2rem;
+  position: static !important;
+}
+
+.reveal .reveal-header .slide-number .slide-number-delimiter {
+  margin: 0 0.08em;
+}
+
+.reveal .reveal-header.is-dark p,
+.reveal .reveal-header.is-dark .slide-number {
+  color: var(--uw-header-fg-dark) !important;
+}
 
 .reveal ul {
-  // font-weight: 300;
-  font-weight: lighter;
+  font-weight: 400;
   padding-left: 16px;
 
   li::marker {
-    color: mix($accent, white, 70%);
+    color: mix($uw-teal, white, 70%);
   }
 }
 
 .reveal ul ul {
   list-style: none;
 
-  li:before {
+  li::before {
+    color: mix($uw-teal, white, 60%);
     content: $right-arrow;
-    color: mix($accent, white, 60%);
     display: inline-block;
-    width: 1em;
     margin-left: -1em;
     margin-right: 0.5em;
+    width: 1em;
   }
 }
 
-// Ordered lists
-
 .reveal ol {
-  // font-weight: 300;
-  font-weight: lighter;
+  font-weight: 400;
   padding-left: 16px;
 
   li::marker {
-    color: $accent;
+    color: $uw-teal;
   }
 }
 
-// Move "hamburger" menu button to top right
-
 .reveal .slide-menu-button {
-  position: fixed;
-  top: 6px;
-  right: 0;
+  align-items: flex-end;
+  bottom: 8px;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+  justify-content: flex-start;
+  left: 8px;
   pointer-events: none;
+  position: fixed;
+  right: auto;
+  top: auto;
 }
 
 .reveal .slide-menu-button > * {
   pointer-events: auto;
 }
 
-// Same for chalkboard buttons (with an offset)
-
 .reveal .slide-chalkboard-buttons {
-  position: fixed;
-  top: 12px;
-  right: 24px;
+  align-items: flex-end;
+  bottom: 8px;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+  justify-content: flex-start;
+  left: 54px;
   pointer-events: none;
+  position: fixed;
+  right: auto;
+  top: auto;
 }
 
 .reveal .slide-chalkboard-buttons > * {
   pointer-events: auto;
 }
 
-// Logo to the bottom-left
-.slide-logo {
+.reveal .slide-logo {
+  bottom: 10px !important;
   display: block !important;
+  filter: none;
+  height: auto !important;
+  left: auto !important;
+  max-height: 80px !important;
+  max-width: 140px !important;
   position: fixed !important;
-  bottom: 0 !important;
-  left: 10px !important;
-  max-width: 150px; // Adjust if necessary
-  max-height: 50px;
+  right: 12px !important;
   width: auto !important;
-  color: $body-color !important;
 }
 
-// Also need to enforce slide numbers at bottom-right (if logo is present)
-.slide-number, .reveal.has-logo .slide-number {
-  bottom: 6px !important;
-  right: 10px !important;
+.reveal.uw-current-slide-dark .slide-logo {
+  filter: brightness(0) invert(1);
+}
+
+.slide-number,
+.reveal.has-logo .slide-number {
+  bottom: 9px !important;
+  color: rgba($uw-alert, 0.9) !important;
+  right: 12px !important;
   top: unset !important;
-  color: #777777 !important;
 }
 
-// Beamer-style button link environment
+@media screen and (max-width: 800px) {
+  .reveal .reveal-header {
+    gap: 0.35rem;
+    padding: 0.18rem 0.45rem 0;
+  }
 
-.button {
-  display: inline-block;
-  padding: 6px 12px;
-  margin-bottom: 0;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.42857143;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  background-color: $accent;
-  border: 1px solid $accent;
-  color: #fff !important;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: all 0.2s ease-in-out;
-}
+  .reveal .slide-menu-button {
+    bottom: 6px;
+    top: auto;
+  }
 
-.button:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
-}
+  .reveal .slide-chalkboard-buttons {
+    bottom: 6px;
+    left: 36px;
+    right: auto;
+    top: auto;
+  }
 
-.button::before {
-  content: "▶";
-  margin-right: 5px;
+  .reveal .slide-logo {
+    max-height: 52px !important;
+    max-width: 92px !important;
+  }
 }
-
-// tables
-
-.reveal table {
-  // height: auto; /* Adjust table width to fit content up to the available slide space */
-  margin: auto;
-  border-collapse: collapse;
-  border-spacing: 0;
-  font-size: 0.8em;
-}
-
-.reveal table th,
-.reveal table td {
-  border: none; /* Remove internal row lines */
-  padding: .23em; /* Adjust padding as needed */
-  text-align: left; /* Adjust text alignment as needed */
-  font-weight: lighter; /* Lighter font weight for main table text */
-}
-
-/* Adds a bottom border to the table header row for distinction */
-.reveal table thead th,
-.reveal .slides table tr:last-child td,
-.reveal .slides table {
-  border-bottom: 2px solid #D3D3D3; /* Dark grey color for the bottom border */
-}
-
-/* Make column headers bold */
-.reveal table thead th {
-  font-weight: bold;
-}
-
-/* Styling table captions */
-.reveal table caption {
-  color: #666666; /* Dark grey color for the caption */
-  font-variant: small-caps; /* Use small caps for the caption text */
-}
-
-// Special catch for etable environment to ensure these table images
-// don't overflow the slide.
-// See: https://lrberge.github.io/fixest/articles/etable_new_features.html
-
-.etable {
-  width: 100%;
-  height: calc(100% - 3em); /* Adjust 3em based on the height of your header, if necessary */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.etable img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-}
-
-// Change the relative widths of `output-location: column`. 
-// See: https://github.com/grantmcdermott/quarto-revealjs-clean/pull/16
-// Example usage:
-// ```{python}
-// #| echo: true
-// #| output-location: column
-// #| classes: columns3070
-// <code>
-// ```
-.reveal .columns3070 > div.column:first-child {
-  width: 30%;
-}
-.reveal .columns3070 div.column:not(:first-child) {
-  width: 70%;
-}
-.reveal .columns7030 > div.column:first-child {
-  width: 70%;
-}
-.reveal .columns7030 div.column:not(:first-child) {
-  width: 30%;
-}
-.reveal .columns4060 > div.column:first-child {
-  width: 40%;
-}
-.reveal .columns4060 div.column:not(:first-child) {
-  width: 60%;
-}      
-.reveal .columns6040 > div.column:first-child {
-  width: 60%;
-}
-.reveal .columns6040 div.column:not(:first-child) {
-  width: 40%;
-}      
