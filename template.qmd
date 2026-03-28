@@ -10,31 +10,38 @@ author:
 date: last-modified
 ---
 
-## Example slide
+## Example Section
 
-### This is a subtitle
+### Example Page
 
-Here we have some text that may run over several lines of the slide frame,
-depending on how long it is.
+#### This is the heading of one page
 
-- first item 
-    - A sub item
+With the extension defaults, `##` creates a section slide, `###` creates a
+separate page within that section, and `####` is the heading for a content
+slide.
 
-Next, we'll brief review some theme-specific components.
+- first item
+    - a sub item
+
+#### Another content slide
+
+Next, we'll briefly review some theme-specific components.
 
 - Note that _all_ of the standard Reveal.js
 [features](https://quarto.org/docs/presentations/revealjs/)
-can be used with this theme, even if we don't highlight them here.
+can still be used with this theme.
 
-## Additional theme classes
+### Theme Utilities
 
-### Some extra things you can do with the clean theme
+#### Additional theme classes
 
 Special classes for emphasis
 
 - `.alert` class for default emphasis, e.g. [important note]{.alert}.
-- `.fg` class for custom colour, e.g. [important note]{.fg style="--col: #e64173"}.
-- `.bg` class for custom background, e.g. [important note]{.bg style="--col: #e64173"}.
+- `.highlight` class for inline emphasis, e.g. [key idea]{.highlight}.
+- `.rounded-box` class for a bordered box around a paragraph or div.
+- `.fg` class for custom colour, e.g. [important note]{.fg style="--col: #4b2e83"}.
+- `.bg` class for custom background, e.g. [important note]{.bg style="--col: #e8e3d3"}.
 
 Cross-references
 
@@ -43,39 +50,34 @@ Cross-references
 
 ## Want more?
 
-### See our longer demo slides
+### Reveal.js Features
 
-We've deliberarely kept this template lean, to get you up and running as fast as
-possible.
+#### Standard Reveal.js features still work as usual
 
-We provide a separate
-[demo template](https://github.com/grantmcdermott/quarto-revealjs-clean-demo),
-with more examples for integrating code, tables, figures, etc.
+This template stays lean so you can adapt it to your own slides quickly.
+Standard
+[Reveal.js features](https://quarto.org/docs/presentations/revealjs/)
+continue to work with the extension.
 
-  - See the live demo slides
-  [here](https://grantmcdermott.com/quarto-revealjs-clean-demo/template.html).
+## Summary
 
-## Summary {#sec-summary}
+### Wrap-Up
 
-### A minimalist and elegant presentation theme
+#### A cleaner, more structured presentation theme {#sec-summary}
 
-The Quarto reveal.js clean theme aims to be a minimalist and elegant presention
-theme. Here are some options to get you started:
+This extension now uses a more structured reveal.js theme inspired by the
+`econometrics-2` slides, while keeping Quarto title metadata like author,
+affiliation, and email visible on the title slide. Here are some options to get
+you started:
 
 Add the theme to an existing project.
 
 ```{.bash}
-quarto install extension grantmcdermott/quarto-revealjs-clean
+quarto install extension Zigzag021/quarto-revealjs-uw
 ```
 
 ... or, create a new project using this slide deck as a lean template.
 
 ```{.bash}
-quarto use template grantmcdermott/quarto-revealjs-clean
-```
-
-... or, create a new project using the demo slide deck as a full template.
-
-```{.bash}
-quarto use template grantmcdermott/quarto-revealjs-clean-demo
+quarto use template Zigzag021/quarto-revealjs-uw
 ```
