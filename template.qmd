@@ -16,6 +16,10 @@ date: last-modified
 
 #### This is the heading of one page
 
+$$
+\text{logit}\{P(Y_{ij}=1)\}=\gamma_{00}+\gamma_{w}*x^W_{ij}+\gamma_{b}*\bar{x}_{j}+u_{0j}
+$$
+
 With the extension defaults, `##` creates a section slide, `###` creates a
 separate page within that section, and `####` is the heading for a content
 slide.

@@ -14,10 +14,96 @@ $uw-mist: #f4f2f7;
 $uw-border: #ddd5ec;
 $right-arrow: "\2192";
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Roboto+Slab:wght@400;600;700&display=swap');
+// Quarto emits the compiled reveal theme under *_files/libs/revealjs/dist/theme/
+// and format-resources next to the rendered document.
+$uw-font-path: "../../../../.." !default;
 
-$font-family-sans-serif: "Noto Sans", sans-serif !default;
-$presentation-heading-font: "Roboto Slab", serif !default;
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("#{$uw-font-path}/Open Sans regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("#{$uw-font-path}/Open Sans italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("#{$uw-font-path}/Open Sans 700.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("#{$uw-font-path}/Open Sans 700italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Encode Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("#{$uw-font-path}/EncodeSansNormal-400-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Encode Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("#{$uw-font-path}/EncodeSansNormal-700-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Uni Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("#{$uw-font-path}/Fontfabric - UniSansBook.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Uni Sans";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("#{$uw-font-path}/Fontfabric - UniSansBookItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Uni Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("#{$uw-font-path}/Fontfabric - UniSansRegular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Uni Sans";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("#{$uw-font-path}/Fontfabric - UniSansRegularItalic.otf") format("opentype");
+}
+
+$uw-font-body: "Open Sans", sans-serif !default;
+$uw-font-heading-primary: "Encode Sans", sans-serif !default;
+$uw-font-heading-secondary: "Uni Sans", sans-serif !default;
+
+$font-family-sans-serif: $uw-font-body !default;
+$presentation-heading-font: $uw-font-heading-primary !default;
 $presentation-heading-color: $uw-ink !default;
 $presentation-heading-font-weight: 700 !default;
 $presentation-heading-line-height: 1.15 !default;
@@ -25,7 +111,7 @@ $presentation-font-size-root: 40px;
 $presentation-h1-font-size: 3em !default;
 $presentation-h2-font-size: 2.4em !default;
 $presentation-h3-font-size: 2em !default;
-$presentation-h4-font-size: 1.1em !default;
+$presentation-h4-font-size: 1.2em !default;
 $presentation-title-slide-text-align: left;
 
 $body-bg: #ffffff !default;
@@ -98,8 +184,9 @@ $overlayElementFgColor: 240, 240, 240 !default;
 
   h3 {
     color: $uw-teal;
+    font-family: $uw-font-heading-secondary;
     font-size: $presentation-h3-font-size;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.06em;
     margin-top: 0.15em;
     text-transform: uppercase;
@@ -107,8 +194,9 @@ $overlayElementFgColor: 240, 240, 240 !default;
 
   h4 {
     color: $uw-teal;
+    font-family: $uw-font-heading-secondary;
     font-size: $presentation-h4-font-size;
-    font-weight: 600;
+    font-weight: 500;
     margin-top: 1.1em;
   }
 
@@ -142,6 +230,7 @@ $overlayElementFgColor: 240, 240, 240 !default;
 
   .subtitle {
     color: rgba($uw-warm, 0.98);
+    font-family: $uw-font-heading-secondary;
     font-size: 0.72em;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -229,7 +318,7 @@ $overlayElementFgColor: 240, 240, 240 !default;
 }
 
 .reveal .slides section.title-slide.level2.uw-dark-slide > h2:first-child::after {
-  background: rgba($uw-warm, 0.92);
+  display: none;
 }
 
 .reveal .slides section.title-slide.level2.uw-dark-slide a,
@@ -304,7 +393,7 @@ $overlayElementFgColor: 240, 240, 240 !default;
 
 .reveal .footer.footer-default {
   color: $uw-alert;
-  font-family: $presentation-heading-font;
+  font-family: $uw-font-heading-secondary;
   font-size: 0.48em;
   letter-spacing: 0.04em;
 }
@@ -329,7 +418,7 @@ $overlayElementFgColor: 240, 240, 240 !default;
 
 .reveal .reveal-header p {
   color: var(--uw-header-fg);
-  font-family: $presentation-heading-font;
+  font-family: $uw-font-heading-secondary;
   font-size: max(10px, 1.35vw);
   letter-spacing: 0.04em;
   margin: 0;
@@ -358,7 +447,7 @@ $overlayElementFgColor: 240, 240, 240 !default;
 .reveal .reveal-header .slide-number {
   background: transparent;
   color: var(--uw-header-fg) !important;
-  font-family: $presentation-heading-font;
+  font-family: $uw-font-heading-secondary;
   font-size: max(10px, 1.1vw);
   inset: auto !important;
   margin-left: 0.2rem;

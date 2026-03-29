@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (isSectionSlide(slide)) {
         currentSection = getHeadingText(slide, "h2");
         currentPage = "";
-        slide.setAttribute("data-sc-title", currentSection);
+        slide.setAttribute("data-sc-title", "");
         slide.setAttribute("data-sb-title", "");
 
         if (!hasExplicitBackground(slide)) {
