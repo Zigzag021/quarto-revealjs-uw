@@ -18,7 +18,7 @@ contributes:
       date-format: long
       html-math-method:
         method: mathjax
-        url: "https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"
+        url: "https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml-nofont.js"
       include-before-body:
         - text: |
             <script src="mathjax-config.js"></script>
@@ -27,3 +27,13 @@ contributes:
         - deck-defaults.js
         - mathjax-config.js
         - uw-dept-logo-measurement-statistics-vertical.svg
+        - fonts/Open Sans regular.ttf
+        - fonts/Open Sans italic.ttf
+        - fonts/Open Sans 700.ttf
+        - fonts/Open Sans 700italic.ttf
+        - fonts/EncodeSansNormal-400-Regular.ttf
+        - fonts/EncodeSansNormal-700-Bold.ttf
+        - fonts/Fontfabric - UniSansBook.otf
+        - fonts/Fontfabric - UniSansBookItalic.otf
+        - fonts/Fontfabric - UniSansRegular.otf
+        - fonts/Fontfabric - UniSansRegularItalic.otf
