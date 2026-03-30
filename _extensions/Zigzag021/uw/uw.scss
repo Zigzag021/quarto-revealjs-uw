@@ -107,11 +107,11 @@ $presentation-heading-font: $uw-font-heading-primary !default;
 $presentation-heading-color: $uw-ink !default;
 $presentation-heading-font-weight: 700 !default;
 $presentation-heading-line-height: 1.15 !default;
-$presentation-font-size-root: 40px;
-$presentation-h1-font-size: 3em !default;
+$presentation-font-size-root: 30px;
+$presentation-h1-font-size: 2.5em !default;
 $presentation-h2-font-size: 2.4em !default;
 $presentation-h3-font-size: 2em !default;
-$presentation-h4-font-size: 1.2em !default;
+$presentation-h4-font-size: 1.4em !default;
 $presentation-title-slide-text-align: left;
 
 $body-bg: #ffffff !default;
@@ -198,6 +198,13 @@ $overlayElementFgColor: 240, 240, 240 !default;
     font-size: $presentation-h4-font-size;
     font-weight: 500;
     margin-top: 1.1em;
+  }
+
+  // Allow blank `####` to create a headingless content slide without
+  // reserving space for an empty heading element.
+  section > h4:empty {
+    display: none;
+    margin: 0;
   }
 
   pre {
