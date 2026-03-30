@@ -10,6 +10,17 @@ author:
 date: last-modified
 ---
 
+<!--
+Authoring notes:
+- `##` starts a section slide.
+- `###` starts a page slide within that section.
+- `####` starts a content slide.
+- A blank `####` is allowed when a content slide should have no dedicated
+  heading.
+- Prefer one main idea per content slide and split dense material instead of
+  shrinking text.
+-->
+
 ## Example Section
 
 ### Example Page
@@ -21,11 +32,19 @@ $$
 $$
 
 With the extension defaults, `##` creates a section slide, `###` creates a
-separate page within that section, and `####` is the heading for a content
-slide.
+page slide within that section, and `####` starts a content slide. Use a blank
+`####` when a content slide should not show its own heading.
 
-- first item
-    - a sub item
+- Keep bullets short.
+- Split dense material across slides instead of shrinking text.
+- Reuse theme utilities before adding custom styling.
+
+####
+
+This content slide intentionally starts without a dedicated heading.
+
+- Use this when the page slide already provides enough context.
+- Start directly with text, math, a figure, or a short list.
 
 #### Another content slide
 
